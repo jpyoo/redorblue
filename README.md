@@ -2,6 +2,7 @@
 A website to help you decide your political stance
 
 ## Screenshot
+This is just an example screenshot, not an actual result of a person.
 ![capture](https://github.com/jpyoo/redorblue/blob/master/Capture.PNG)
 
 ## Code
