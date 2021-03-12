@@ -1,0 +1,216 @@
+// programing done by jpyoo, github @jpyoo
+
+//declair functions
+function yesButtonClick(){}
+function startFunction(){}
+function noButtonClick(){}
+function dontKnowButtonClick(){}
+function yesButton(){}
+function noButton(){}
+function dontKnowButton(){}
+function calcScore(){}
+function showScore(){}
+function showResult(){}
+function getReadyForResult(){}
+function showDetailButton(){}
+function remainingCount(){}
+function yesorno(){}
+function getQuestions(){}//testing
+function randomIntArrGenerate(arrLength,objLength){}// testing
+//declair functions on start
+$(document).ready(function(){    
+  getQuestions();
+  $("#mainContent").hide();
+  $("#resultBox").hide();
+  $("#submitButtonBox").hide();
+  $("#showResultButton").hide();
+});
+//declair variables
+var index = 0;
+var scoreRed = 0;
+var scoreBlue = 0;
+var scoreRedP = 0;
+var scoreBlueP = 0;
+var myObject = [];
+
+
+// arrLenth = number of int to generate, objLenght = range of Int, RETURN []
+function randomIntArrGenerate(arrLength,objLength){
+    var randomIntArr = [];
+        while(randomIntArr.length < arrLength){
+           var r = Math.floor(Math.random() * objLength);
+           if(randomIntArr.indexOf(r) === -1) randomIntArr.push(r);
+        }
+    return randomIntArr;
+}//
+// generate random int array and get 10 questions from JSON file.
+function getQuestions(){
+  var jsonAJAX = $.getJSON("lib/data.json", function(json) {
+	console.log( "AJAXsuccess" );
+	var jsonObject = json;
+    $(document).ready(function(){
+    var randomIntArr = randomIntArrGenerate(10,json.length); 
+	$.each(randomIntArr, function (index, value) {
+		myObject.push(jsonObject[value]);
+        }
+	);
+    });
+  }).done(function() {
+    console.log( "AJAXsecond success" );    
+  })
+  .fail(function() {
+    console.log( "AJAXerror" );
+  })
+  .always(function() {
+    console.log( "AJAXcomplete" );
+  });
+}//
+//remainingCount function
+function remainingCount(){
+	var count = index + 1;
+	if(count <= myObject.length && count >= 1){
+	$("#remainingCount").text(count + "/" + myObject.length);
+	}else{
+		$("#remainingCount").text("");
+	}
+}//
+//yes or no function
+function yesorno(n){
+  if(n == 0){
+    return "I Don't Know";
+  }else if(n == 1){
+    return "Yes";
+  }else if(n == 2){
+    return "No";
+  }else{
+    return "You lied";
+  }
+}//
+//show detail button function
+function showDetailButton(){
+  var string = ""
+  for (i = 0; i< myObject.length; i++) {
+    var j = i+1;
+    var obj = myObject[i];
+    string += "<thead><th colspan=3 scope=colgroup><h5>Question"+ j + ": " + obj.content + "</h5></th></thead><tbody><tr><td>source:" + obj.source + "</td><td>By:" + obj.name + "</td><td>Your Answer:" + yesorno(obj.yesorno) + "</td></tr></tbody>";
+  }
+  return string;
+}//
+//start function
+function startFunction(){
+//getQuestions();
+$("#mainContent").show();
+$("#mainContent").text(myObject[index].content);
+$("#submitButtonBox").show();
+$("#startButton").hide();
+remainingCount();
+}//
+//yes button
+function yesButtonClick(){
+  myObject[index].yesorno = 1;
+  index++;
+  remainingCount()
+}
+function yesButton(){
+if(index < myObject.length-1){
+  yesButtonClick();
+  $("#mainContent").text(myObject[index].content);
+}else if(index == myObject.length-1){
+  yesButtonClick();
+  getReadyForResult();
+}else{
+  showResult();
+}}//
+//no button
+function noButtonClick(){
+  myObject[index].yesorno = 2;
+  index++;
+  remainingCount()
+}
+function noButton(){
+if(index < myObject.length-1){
+  noButtonClick();
+  $("#mainContent").text(myObject[index].content);
+}else if(index == myObject.length-1){
+  noButtonClick();
+  getReadyForResult();
+}else{
+  showResult();
+}}//
+//dontKnowButton
+function dontKnowButtonClick(){
+  myObject[index].yesorno = 0;
+  index++;
+  remainingCount()
+}
+function dontKnowButton(){
+if(index < myObject.length-1){
+  dontKnowButtonClick();
+  $("#mainContent").text(myObject[index].content);
+}else if(index == myObject.length-1){
+  dontKnowButtonClick();
+  getReadyForResult();
+}else{
+  showResult();
+}}//
+//get Ready for result
+function getReadyForResult(){
+  $("#submitButtonBox").hide();
+  $("#showResultButton").show();
+  $("#mainContent").text("Are you ready for your political preference?");
+}//
+//calc Score
+function calcScore(){
+  for (i = 0; i< myObject.length; i++) {
+    var indexedObject = myObject[i];
+    if(indexedObject.yesorno == 0){
+      scoreRed += indexedObject.blue;
+      scoreBlue += indexedObject.red;
+    }else if(indexedObject.yesorno == 1){
+      scoreRed += indexedObject.red;
+      scoreBlue += indexedObject.blue;
+    }else if(indexedObject.yesorno == 2){
+    }else{}
+  }
+  scoreRedP = scoreRed/(scoreRed+scoreBlue)*100;
+  scoreBlueP = scoreBlue/(scoreRed+scoreBlue)*100;
+}//
+//show Score
+function showScore(){
+  $("#mainContent").text("");
+  $("#mainContent").hide()
+  $("#resultDisplay").append((scoreRedP).toFixed(2) + "% red   " + (scoreBlueP).toFixed(2) + "% blue");
+  $("#resultBox").show();
+  $("#showResultButton").hide();
+  $("#redProgressBar").css("width", (scoreRedP).toFixed(2)+"%");
+  $("#blueProgressBar").css("width", (scoreBlueP).toFixed(2)+"%");
+}//
+//show Result
+function showResult(){
+  calcScore();
+  showScore();
+}//
+// set button function on click
+$(document).ready(function(){
+  $("#startButton").click(function(){
+		startFunction();
+	});
+  $("#yesButton").click(function(){
+		yesButton();
+	});
+	$("#noButton").click(function(){
+		noButton();
+	});
+	$("#dontKnowButton").click(function(){
+		dontKnowButton();
+	});
+  $("#showResultButton").click(function(){
+		showResult();
+	});
+  $("#reset").click(function(){
+    window.location = "index.html";
+	});
+  $("#showDetailButton").click(function(){
+    $("#resultDetail").append(showDetailButton());
+	});
+});

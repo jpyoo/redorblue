@@ -1,0 +1,40 @@
+.preferenceGraph{
+  height: 36px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+.rounded{
+  border-radius: 25px;
+}
+.fill{
+  width: 50%;
+  align:center;
+}
+.veryMiddle{
+  top: 25%;
+}
+#mainContent{
+  height:auto;
+  text-align:center;
+  padding-top:12px;
+}
+#headerDisplay{
+  text-align: center;
+  padding-bottom: 24px;
+}
+#resultDisplay{
+  text-align: center;
+  padding-top:0px;
+}
+#redProgressBar{
+  background-color: red;
+  float: left;
+}
+#blueProgressBar{
+  background-color: blue;
+  float: right;
+}
+#secondTitle{
+  color: black;
+  opacity: 0.5;
+}

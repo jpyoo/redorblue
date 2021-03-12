@@ -1,0 +1,71 @@
+[{
+        content: "Pretending the taxes people currently pay are on wealth and not income is either a mistake or disingenuous.",
+        name: "Erik Sherman",
+        source: "Forbes",
+        red: 30,
+        blue: 70,
+        yesorno: 0
+    }, {
+        content: "There's something messy, unwieldy, and, ultimately, sneaky about a combination of promises and plans that declare healthcare will be \"free\" for most and that the wealthy only need pay a few pennies on the dollar of additional contributions",
+        name: "Erik Sherman",
+        source: "Forbes",
+        red: 30,
+        blue: 70,
+        yesorno: 0
+    }, {
+        content: "While most Americans are paying less in taxes overall under President Donald Trump's 2017 law, many have been startled to find that their refunds have barely changed or are down -- making them feel like they lost, even if they're still coming out ahead.",
+        name: "Zachary B. Wolf",
+        source: "CNN",
+        red: 70,
+        blue: 30,
+        yesorno: 0
+    }, {
+        content: "Every American would be provided with health insurance through Medicare and private insurers would be eliminated",
+        name: "Bernie Sanders",
+        source: "Medicare-for-all",
+        red: 85,
+        blue: 15,
+        yesorno: 0
+    }, {
+        content: "Bring the entire hemisphere together to talk about how we rebuild Honduras, Guatemala, and El Salvador so people do not have to flee their own countries.",
+        name: "Bernie Sanders",
+        source: "Democratic presidential debate in Detroit",
+        red: 85,
+        blue: 15,
+        yesorno: 0
+    }, {
+        content: "Enacte a \"gag rule\" policy to prohibit family planning clinics that provide abortion services or referrals from receiving $286 million in federal funding under Title X",
+        name: "Donald Trump",
+        source: "Business Insider",
+        red: 15,
+        blue: 85,
+        yesorno: 0
+    }, {
+        content: "Permanently restricts travel from the originally targeted countries except Iraq and Sudan, and further bans travelers from North Korea and Chad, along with certain Venezuelan officials",
+        name: "Donald Trump",
+        source: "Presidential Proclamation 9645 on September 24, 2017",
+        red: 15,
+        blue: 85,
+        yesorno: 0
+    }, {
+        content: "Every patriotic American who is qualified to serve in our military should be able to serve. Full stop.",
+        name: "Joe Biden",
+        source: "Joe Biden Tweeter",
+        red: 80,
+        blue: 20,
+        yesorno: 0
+    }, {
+        content: "Take steps to ensure that alternative providers are available and accessible to all women, especially low-income women for direct abortions.",
+        name: "Kamala Harris",
+        source: "St. Joseph Health System abortion ban",
+        red: 100,
+        blue: 0,
+        yesorno: 0
+    }, {
+        content: "To keep our traditional public school systems strong, we must resist efforts to divert public funds out of traditional public schools",
+        name: "Elizabeth Warren",
+        source: "Medium post",
+        red: 85,
+        blue: 15,
+        yesorno: 0
+    }]
