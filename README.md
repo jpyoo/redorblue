@@ -1,10 +1,10 @@
 # redorblue
 A website to help you decide your political stance
 
-##Screenshot
+## Screenshot
 ![capture](https://github.com/jpyoo/redorblue/blob/master/Capture.PNG)
 
-##Code
+## Code
 ```html
 <!DOCTYPE html>
     <html>
