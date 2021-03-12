@@ -1,2 +1,2 @@
 # redorblue
-Political website
+A website to help you decide your political stance
